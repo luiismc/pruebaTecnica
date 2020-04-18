@@ -1,0 +1,19 @@
+extends index
+block content
+	head
+		title= 'Eliminar Usuario'
+		style
+			include style.css
+	body
+		h1= 'Eliminar Usuario'
+	table
+		for user in userList
+			tr
+				td= user.id
+				td
+					a(href='/users/'+user.id) #{user.nombre}
+				td= user.apellidos
+				td= user.email
+				td= user.rol
+				td= user.nick
+				input.btn.btn-primary(type='submit', value='Submit')

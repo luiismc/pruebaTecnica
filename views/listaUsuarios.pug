@@ -1,0 +1,29 @@
+extends index
+block content
+
+	head
+		title= 'Lista Usuarios'
+		style
+			include style.css
+	body
+		h1= 'Lista Usuarios'
+	table
+		for user in userList
+			tr
+				td= user.id
+				td
+					a(href='/users/'+user.id) #{user.nombre}
+				td= user.apellidos
+				td= user.email
+				td= user.rol
+				td= user.nick
+				td 
+					form(method='delete', action='/delete/'+user.id)
+						input.btn.btn-primary(type='submit', value='eliminar', onClick="clicked(event)")
+						script.
+							function clicked(e)
+							{
+							if(!confirm('Seguro?'))e.preventDefault();
+							}
+
+						
